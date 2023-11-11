@@ -1,1 +1,1 @@
-# TrabalhoPOO_23795
+# Trabalho de programação orientada a objetos na linguagem C#.
