@@ -91,11 +91,45 @@
 
                 case "3":
                     Console.WriteLine("Escolha o tipo de comida (1. Carnívoro, 2. Herbívoro, 3. Onívoro): ");
-                    int tipoComida = int.Parse(Console.ReadLine());
+                    if (int.TryParse(Console.ReadLine(), out int escolhaComida))
+                    {
+                        TipoComida tipoComida = null;
 
-                    // Adicionar lógica para alimentar animais com base no tipo de comida escolhido
-                    // Pode envolver iteração sobre a lista de animais e chamadas a métodos de alimentação
+                        switch (escolhaComida)
+                        {
+                            case 1:
+                                tipoComida = new TipoComida { Nome = "Carnívoro", Descricao = "Comida para carnívoros" };
+                                break;
+                            case 2:
+                                tipoComida = new TipoComida { Nome = "Herbívoro", Descricao = "Comida para herbívoros" };
+                                break;
+                            case 3:
+                                tipoComida = new TipoComida { Nome = "Onívoro", Descricao = "Comida para onívoros" };
+                                break;
+                            default:
+                                Console.WriteLine("Escolha inválida de comida.");
+                                break;
+                        }
+
+                        if (tipoComida != null)
+                        {
+                            alimentacao.TiposComida.Add(tipoComida);
+
+                            Console.WriteLine($"Alimentando animais com {tipoComida.Nome}...");
+
+                            foreach (var animal in animais)
+                            {
+                                Console.WriteLine($"Alimentando {animal.Nome} com {tipoComida.Nome}.");
+                                alimentacao.Alimentar(animal);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Escolha inválida. Insira um número.");
+                    }
                     break;
+
 
                 case "4":
                     Console.Write("Digite a data do evento (dd/mm/yyyy): ");

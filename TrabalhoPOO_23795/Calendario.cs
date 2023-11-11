@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 class Calendario
 {
-    public List<DateTime>? Eventos { get; set; }
+    public List<DateTime> Eventos { get; set; }
+
+    public Calendario()
+    {
+        Eventos = new List<DateTime>();
+    }
 
     public void AdicionarEvento(DateTime data)
     {
