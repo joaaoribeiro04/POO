@@ -13,7 +13,8 @@ class Bilhete
     {
         if (Disponivel)
         {
-            Console.WriteLine($"Bilhete vendido por {Preco}.");
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.WriteLine($"Bilhete vendido por {Preco:N2}€");
             Disponivel = false;
         }
         else

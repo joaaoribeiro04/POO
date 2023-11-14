@@ -18,7 +18,7 @@ class Zoo
         calendario = new Calendario();
         limpeza = new LimpezaJaulas();
         espetaculo = new Espetaculo { Nome = "Show de Leões", Duracao = TimeSpan.FromHours(1) };
-        bilhete = new Bilhete { Preco = 20.0m, Disponivel = true };
+        bilhete = new Bilhete { Preco = 20m, Disponivel = true };
     }
 
 
