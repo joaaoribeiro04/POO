@@ -1,4 +1,6 @@
-﻿class Zoo
+﻿using System.Text.Json;
+
+class Zoo
 {
     private List<Animal> animais;
     private AssistenciaVeterinaria veterinaria;
@@ -19,15 +21,12 @@
         bilhete = new Bilhete { Preco = 20.0m, Disponivel = true };
     }
 
+
     private Funcionario funcionarioLogado;
 
     public bool Login(string nome, string senha)
     {
-        // Aqui você pode adicionar lógica para verificar as credenciais em um arquivo ou banco de dados
-        // Por exemplo, verificar se há um funcionário com o nome fornecido e se a senha está correta
-
-        // Exemplo simples para ilustração:
-        if (nome == "joao" && senha == "joao")
+          if (nome == "joao" && senha == "joao")
         {
             funcionarioLogado = new Funcionario(nome, senha);
             Console.WriteLine($"Bem-vindo, {nome}!");

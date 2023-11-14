@@ -12,8 +12,7 @@
 
         // Tenta fazer login
         if (meuZoo.Login(nomeUsuario, senhaUsuario))
-        {
-            // Funcionário autenticado, agora você pode acessar as funcionalidades do zoológico
+        {          
             meuZoo.Menu();
         }
         meuZoo.Menu();
