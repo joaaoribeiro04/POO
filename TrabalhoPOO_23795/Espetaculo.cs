@@ -13,6 +13,6 @@ class Espetaculo
 
     public void RealizarEspetaculo()
     {
-        Console.WriteLine($"Realizando espetáculo: {Nome} ({Duracao} horas).");
+        Console.WriteLine($"A realizar espetáculo: {Nome} ({Duracao} horas).");
     }
 }

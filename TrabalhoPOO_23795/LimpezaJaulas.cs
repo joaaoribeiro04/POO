@@ -8,6 +8,6 @@ class LimpezaJaulas
 {
     public void LimparJaula(Animal animal)
     {
-        Console.WriteLine($"Limpando a jaula de {animal.Nome}.");
+        Console.WriteLine($"A limpar a jaula de {animal.Nome}.");
     }
 }

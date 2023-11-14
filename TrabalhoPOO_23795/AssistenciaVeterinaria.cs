@@ -10,6 +10,6 @@ class AssistenciaVeterinaria
 
     public void RealizarExame(Animal animal)
     {
-        Console.WriteLine($"Realizando exame médico em {animal.Nome}.");
+        Console.WriteLine($"A realizar exame médico em {animal.Nome}.");
     }
 }

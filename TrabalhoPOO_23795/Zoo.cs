@@ -46,9 +46,9 @@
             switch (opcao)
             {
                 case "1":
-                    Console.Write("Digite o nome do animal: ");
+                    Console.Write("Insira o nome do animal: ");
                     string nomeAnimal = Console.ReadLine();
-                    Console.Write("Digite a idade do animal: ");
+                    Console.Write("Insira a idade do animal: ");
                     int idadeAnimal = int.Parse(Console.ReadLine());
 
                     Console.Write("Tipo de animal (Leao/Elefante): ");
@@ -75,7 +75,7 @@
                     break;
 
                 case "2":
-                    Console.Write("Digite o nome do animal a ser examinado: ");
+                    Console.Write("Insira o nome do animal a ser examinado: ");
                     string nomeExame = Console.ReadLine();
                     Animal animalExame = animais.Find(a => a.Nome == nomeExame);
 
@@ -132,7 +132,7 @@
 
 
                 case "4":
-                    Console.Write("Digite a data do evento (dd/mm/yyyy): ");
+                    Console.Write("Insira a data do evento (dd/mm/yyyy): ");
                     if (DateTime.TryParse(Console.ReadLine(), out DateTime dataEvento))
                     {
                         calendario.AdicionarEvento(dataEvento);
@@ -144,7 +144,7 @@
                     break;
 
                 case "5":
-                    Console.Write("Digite o nome do animal cuja jaula será limpa: ");
+                    Console.Write("Insira o nome do animal cuja jaula será limpa: ");
                     string nomeLimpeza = Console.ReadLine();
                     Animal animalLimpeza = animais.Find(a => a.Nome == nomeLimpeza);
 
@@ -171,7 +171,7 @@
                     break;
 
                 case "9":
-                    Console.WriteLine("Saindo do programa.");
+                    Console.WriteLine("A sair do programa.");
                     return;
 
                 default:
