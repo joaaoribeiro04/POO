@@ -115,11 +115,11 @@
                         {
                             alimentacao.TiposComida.Add(tipoComida);
 
-                            Console.WriteLine($"Alimentando animais com {tipoComida.Nome}...");
+                            Console.WriteLine($"A alimentar animais com {tipoComida.Nome}...");
 
                             foreach (var animal in animais)
                             {
-                                Console.WriteLine($"Alimentando {animal.Nome} com {tipoComida.Nome}.");
+                                Console.WriteLine($"A alimentar {animal.Nome} com {tipoComida.Nome}.");
                                 alimentacao.Alimentar(animal);
                             }
                         }
