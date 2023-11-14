@@ -19,6 +19,27 @@
         bilhete = new Bilhete { Preco = 20.0m, Disponivel = true };
     }
 
+    private Funcionario funcionarioLogado;
+
+    public bool Login(string nome, string senha)
+    {
+        // Aqui você pode adicionar lógica para verificar as credenciais em um arquivo ou banco de dados
+        // Por exemplo, verificar se há um funcionário com o nome fornecido e se a senha está correta
+
+        // Exemplo simples para ilustração:
+        if (nome == "joao" && senha == "joao")
+        {
+            funcionarioLogado = new Funcionario(nome, senha);
+            Console.WriteLine($"Bem-vindo, {nome}!");
+            return true;
+        }
+        else
+        {
+            Console.WriteLine("Credenciais inválidas. Tente novamente.");
+            return false;
+        }
+    }
+
     public void AdicionarAnimal(Animal animal)
     {
         animais.Add(animal);
@@ -186,7 +207,7 @@
         Console.WriteLine("Animais no zoológico:");
         foreach (var animal in animais)
         {
-            Console.WriteLine($"{animal.Nome} - Idade: {animal.Idade} anos");
+            Console.WriteLine($"Nome: {animal.Nome} - Idade: {animal.Idade} anos - Tipo: {animal.Tipo}");
         }
     }
 }
