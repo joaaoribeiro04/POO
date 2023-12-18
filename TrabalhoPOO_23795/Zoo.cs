@@ -56,7 +56,7 @@ class Zoo
         
     {
 
-        string filePath = caminhoArquivo; // File path
+        string filePath = caminhoArquivo; 
 
         try
         {
@@ -70,19 +70,18 @@ class Zoo
         catch (JsonException jsonEx)
         {
             Console.WriteLine(jsonEx.Message);
-            // Handle JSON serialization/deserialization exceptions
+           
         }
         catch (IOException ioEx)
         {
             Console.WriteLine(ioEx.Message);
-            // Handle I/O exceptions
-            // Handle other exceptions
+           
         }
     }
 
     public void ReadAnimalsFromFile()
     {
-        string filePath = caminhoArquivo; // File path
+        string filePath = caminhoArquivo; 
 
         try
         {
@@ -92,13 +91,12 @@ class Zoo
         catch (JsonException jsonEx)
         {
             Console.WriteLine(jsonEx.Message);
-            // Handle JSON serialization/deserialization exceptions
+          
         }
         catch (IOException ioEx)
         {
             Console.WriteLine(ioEx.Message);
-            // Handle I/O exceptions
-            // Handle other exceptions
+            
         }
     }
 
@@ -115,9 +113,9 @@ class Zoo
             Console.WriteLine("6. Realizar espetáculo");
             Console.WriteLine("7. Vender bilhete");
             Console.WriteLine("8. Mostrar animais");
-            Console.WriteLine("9. Sair");
-            Console.WriteLine("10. Salvar dados");
-            Console.WriteLine("11. Carregar dados");
+            Console.WriteLine("9. Salvar dados");
+            Console.WriteLine("10. Carregar dados");
+            Console.WriteLine("11. Sair");
 
             Console.Write("Escolha uma opção: ");
             string opcao = Console.ReadLine();
@@ -250,18 +248,18 @@ class Zoo
                     break;
 
                 case "9":
-                    Console.WriteLine("A sair do programa.");
-                    return;
-
-                case "10":
                     WriteAnimalsToFile();
                     Console.WriteLine("Dados salvos com sucesso.");
                     break;
 
-                case "11":
+                case "10":
                     ReadAnimalsFromFile();
                     Console.WriteLine("Dados carregados com sucesso.");
                     break;
+
+                case "11":
+                    Console.WriteLine("A sair do programa.");
+                    return;
 
                 default:
                     Console.WriteLine("Opção inválida. Tente novamente.");
