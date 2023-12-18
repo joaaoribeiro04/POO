@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class Espetaculo
+public class Espetaculo : IEspetaculo
 {
     private TimeSpan duracao;
 
@@ -12,7 +12,7 @@ public class Espetaculo
         Console.Write("Escolha o tipo de espetáculo (1. Aéreo, 2. Aquático, 3. Terrestre): ");
         if (int.TryParse(Console.ReadLine(), out int escolhaEspetaculo))
         {
-            Espetaculo espetaculo;
+            IEspetaculo espetaculo;
 
             switch (escolhaEspetaculo)
             {
@@ -23,7 +23,7 @@ public class Espetaculo
                     espetaculo = new EspetaculoAquatico();
                     break;
                 case 3:
-                    espetaculo = new EspetaculoTerrestre(); 
+                    espetaculo = new EspetaculoTerrestre();
                     break;
                 default:
                     Console.WriteLine("Escolha inválida.");

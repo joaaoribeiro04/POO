@@ -1,4 +1,4 @@
-﻿public class EspetaculoAquatico : Espetaculo
+﻿public class EspetaculoAquatico : Espetaculo, IEspetaculo
 {
     public override void RealizarEspetaculo()
     {

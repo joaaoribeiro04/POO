@@ -1,4 +1,4 @@
-﻿public class EspetaculoTerrestre : Espetaculo
+﻿public class EspetaculoTerrestre : Espetaculo, IEspetaculo
 {
     public override void RealizarEspetaculo()
     {
