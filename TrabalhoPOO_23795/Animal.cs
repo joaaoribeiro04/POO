@@ -8,5 +8,5 @@ class Animal
 {
     public string? Nome { get; set; }
     public int Idade { get; set; }
-    public string? Tipo { get; set; }
+    public string? TipoAnimal { get; internal set; }
 }

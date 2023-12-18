@@ -102,7 +102,7 @@ class Zoo
         Console.WriteLine("Animais no zoológico:");
         foreach (var animal in animais)
         {
-            Console.WriteLine($"Nome: {animal.Nome} - Idade: {animal.Idade} anos - Tipo: {animal.Tipo}");
+            Console.WriteLine($"Nome: {animal.Nome} - Idade: {animal.Idade} anos - Tipo: {animal.TipoAnimal}");
         }
     }
 
@@ -134,25 +134,17 @@ class Zoo
                     Console.Write("Insira a idade do animal: ");
                     int idadeAnimal = int.Parse(Console.ReadLine());
 
-                    Console.Write("Tipo de animal (Leao/Elefante): ");
+                    Console.Write("Tipo de animal: ");
                     string tipoAnimal = Console.ReadLine();
 
                     Animal novoAnimal;
-                    if (tipoAnimal.ToLower() == "leao")
-                    {
-                        novoAnimal = new Leao();
-                    }
-                    else if (tipoAnimal.ToLower() == "elefante")
-                    {
-                        novoAnimal = new Elefante();
-                    }
-                    else
                     {
                         novoAnimal = new Animal();
                     }
 
                     novoAnimal.Nome = nomeAnimal;
                     novoAnimal.Idade = idadeAnimal;
+                    novoAnimal.TipoAnimal = tipoAnimal;
 
                     AdicionarAnimal(novoAnimal);
                     break;
