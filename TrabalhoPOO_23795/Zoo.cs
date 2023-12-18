@@ -97,6 +97,15 @@ class Zoo
         }
     }
 
+    public void MostrarAnimais()
+    {
+        Console.WriteLine("Animais no zoológico:");
+        foreach (var animal in animais)
+        {
+            Console.WriteLine($"Nome: {animal.Nome} - Idade: {animal.Idade} anos - Tipo: {animal.Tipo}");
+        }
+    }
+
     public void Menu()
     {
         do
@@ -263,14 +272,5 @@ class Zoo
                     break;
             }
         } while (true);
-    }
-
-    public void MostrarAnimais()
-    {
-        Console.WriteLine("Animais no zoológico:");
-        foreach (var animal in animais)
-        {
-            Console.WriteLine($"Nome: {animal.Nome} - Idade: {animal.Idade} anos - Tipo: {animal.Tipo}");
-        }
     }
 }
