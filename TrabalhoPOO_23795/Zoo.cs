@@ -41,21 +41,6 @@ class Zoo
         }
     }
 
-    public void AdicionarAnimal(Animal animal)
-    {
-        animais.Add(animal);
-        Console.WriteLine($"{animal.Nome} foi adicionado ao zoológico.");
-    }
-
-    public void MostrarAnimais()
-    {
-        Console.WriteLine("Animais no zoológico:");
-        foreach (var animal in animais)
-        {
-            Console.WriteLine($"Nome: {animal.Nome} - Idade: {animal.Idade} anos - Tipo: {animal.TipoAnimal}");
-        }
-    }
-
     public void Menu()
     {
         do
@@ -206,7 +191,7 @@ class Zoo
 
 
                 case "7":
-                    MostrarAnimais();
+                    Console.WriteLine(Animal.MostrarAnimais(animais));
                     break;
 
                 case "8":

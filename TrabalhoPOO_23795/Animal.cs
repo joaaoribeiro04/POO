@@ -10,13 +10,13 @@ class Animal
     public static Animal CriarNovoAnimal()
     {
         Console.Write("Insira o nome do animal: ");
-        string nomeAnimal = Console.ReadLine();
+        string? nomeAnimal = Console.ReadLine();
 
         Console.Write("Insira a idade do animal: ");
         int idadeAnimal = int.Parse(Console.ReadLine());
 
         Console.Write("Tipo de animal: ");
-        string tipoAnimal = Console.ReadLine();
+        string? tipoAnimal = Console.ReadLine();
 
         return new Animal
         {
@@ -24,6 +24,15 @@ class Animal
             Idade = idadeAnimal,
             TipoAnimal = tipoAnimal
         };
+    }
+    public static string MostrarAnimais(List<Animal> animais)
+    {
+        string result = "Animais no zoológico:\n";
+        foreach (var animal in animais)
+        {
+            result += $"Nome: {animal.Nome} - Idade: {animal.Idade} anos - Tipo: {animal.TipoAnimal}\n";
+        }
+        return result;
     }
 
     public void AdicionarAoZoo(List<Animal> animais)
