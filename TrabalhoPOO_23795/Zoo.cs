@@ -7,9 +7,9 @@ class Zoo
     private Alimentacao alimentacao;
     private LimpezaJaulas limpeza;
     private Espetaculo espetaculo;
-    private Bilhete bilhete;
+    private Bilhete? bilhete;
 
-    private string caminhoArquivo;
+    private string? caminhoArquivo;
 
 
     public Zoo()
@@ -24,7 +24,7 @@ class Zoo
     }
 
 
-    private Funcionario funcionarioLogado;
+    private Funcionario? funcionarioLogado;
 
     public bool Login(string nome, string senha)
     {
@@ -73,19 +73,19 @@ class Zoo
             Console.WriteLine("0. Sair");
 
             Console.Write("Escolha uma opção: ");
-            string opcao = Console.ReadLine();
+            string? opcao = Console.ReadLine();
 
             switch (opcao)
             {
                 case "1":
-                    Animal animal = new Animal();
+                    Animal? animal = new Animal();
                     animal.AdicionarAoZoo(animais);
                     break;
 
                 case "2":
                     Console.Write("Insira o nome do animal a ser examinado: ");
-                    string nomeExame = Console.ReadLine();
-                    Animal animalExame = animais.Find(a => a.Nome == nomeExame);
+                    string? nomeExame = Console.ReadLine();
+                    Animal? animalExame = animais.Find(a => a.Nome == nomeExame);
 
                     if (animalExame != null)
                     {
@@ -99,16 +99,16 @@ class Zoo
 
                 case "3":
                     Console.Write("Insira o nome do animal a ser alimentado: ");
-                    string nomeAlimentar = Console.ReadLine();
+                    string? nomeAlimentar = Console.ReadLine();
 
-                    Animal animalAlimentar = animais.Find(a => a.Nome == nomeAlimentar);
+                    Animal? animalAlimentar = animais.Find(a => a.Nome == nomeAlimentar);
 
                     if (animalAlimentar != null)
                     {
                         Console.WriteLine("Escolha o tipo de comida (1. Carnívora, 2. Herbívora, 3. Omnívora): ");
                         if (int.TryParse(Console.ReadLine(), out int escolhaComida))
                         {
-                            TipoComida tipoComida = null;
+                            TipoComida? tipoComida = null;
 
                             switch (escolhaComida)
                             {
@@ -148,8 +148,8 @@ class Zoo
 
                 case "4":
                     Console.Write("Insira o nome do animal cuja jaula será limpa: ");
-                    string nomeLimpeza = Console.ReadLine();
-                    Animal animalLimpeza = animais.Find(a => a.Nome == nomeLimpeza);
+                    string? nomeLimpeza = Console.ReadLine();
+                    Animal? animalLimpeza = animais.Find(a => a.Nome == nomeLimpeza);
 
                     if (animalLimpeza != null)
                     {
