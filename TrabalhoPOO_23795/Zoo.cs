@@ -248,8 +248,26 @@ class Zoo
                     break;
 
                 case "6":
-                    bilhete.VenderBilhete();
+                    Console.Write("Insira a data do espetáculo (dd/MM/yyyy): ");
+                    if (DateTime.TryParse(Console.ReadLine(), out dataEspetaculo))
+                    {
+                        Console.Write("Insira a hora do espetáculo (HH:mm): ");
+                        if (TimeSpan.TryParse(Console.ReadLine(), out TimeSpan horaEspetaculo))
+                        {
+                            dataEspetaculo = dataEspetaculo.Add(horaEspetaculo);
+                            espetaculo.RealizarEspetaculo(dataEspetaculo);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Hora inválida.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Data inválida.");
+                    }
                     break;
+
 
                 case "7":
                     MostrarAnimais();
