@@ -9,7 +9,7 @@ public class Espetaculo
 
     public virtual void RealizarEspetaculo()
     {
-        Console.Write("Escolha o tipo de espetáculo (1. Aéreo, 2. Aquático): ");
+        Console.Write("Escolha o tipo de espetáculo (1. Aéreo, 2. Aquático, 3. Terrestre): ");
         if (int.TryParse(Console.ReadLine(), out int escolhaEspetaculo))
         {
             Espetaculo espetaculo;
@@ -22,6 +22,9 @@ public class Espetaculo
                 case 2:
                     espetaculo = new EspetaculoAquatico();
                     break;
+                case 3:
+                    espetaculo = new EspetaculoTerrestre(); 
+                    break;
                 default:
                     Console.WriteLine("Escolha inválida.");
                     return;
@@ -33,7 +36,6 @@ public class Espetaculo
         {
             Console.WriteLine("Escolha inválida. Insira um número.");
         }
-        
     }
 }
 
