@@ -112,13 +112,13 @@ class Zoo
             Console.WriteLine("1. Adicionar animal");
             Console.WriteLine("2. Realizar exame veterinário");
             Console.WriteLine("3. Alimentar animais");
-            Console.WriteLine("5. Limpar jaulas");
-            Console.WriteLine("6. Realizar espetáculo");
-            Console.WriteLine("7. Vender bilhete");
-            Console.WriteLine("8. Mostrar animais");
-            Console.WriteLine("9. Salvar dados");
-            Console.WriteLine("10. Carregar dados");
-            Console.WriteLine("11. Sair");
+            Console.WriteLine("4. Limpar jaulas");
+            Console.WriteLine("5. Realizar espetáculo");
+            Console.WriteLine("6. Vender bilhete");
+            Console.WriteLine("7. Mostrar animais");
+            Console.WriteLine("8. Salvar dados");
+            Console.WriteLine("9. Carregar dados");
+            Console.WriteLine("0. Sair");
 
             Console.Write("Escolha uma opção: ");
             string opcao = Console.ReadLine();
@@ -210,7 +210,7 @@ class Zoo
                     break;
 
 
-                case "5":
+                case "4":
                     Console.Write("Insira o nome do animal cuja jaula será limpa: ");
                     string nomeLimpeza = Console.ReadLine();
                     Animal animalLimpeza = animais.Find(a => a.Nome == nomeLimpeza);
@@ -225,7 +225,7 @@ class Zoo
                     }
                     break;
 
-                case "6":
+                case "5":
                     Console.Write("Insira a data do espetáculo (dd/mm/yyyy): ");
                     if (DateTime.TryParse(Console.ReadLine(), out DateTime dataEspetaculo))
                     {
@@ -247,25 +247,25 @@ class Zoo
                     }
                     break;
 
-                case "7":
+                case "6":
                     bilhete.VenderBilhete();
                     break;
 
-                case "8":
+                case "7":
                     MostrarAnimais();
                     break;
 
-                case "9":
+                case "8":
                     WriteAnimalsToFile();
                     Console.WriteLine("Dados salvos com sucesso.");
                     break;
 
-                case "10":
+                case "9":
                     ReadAnimalsFromFile();
                     Console.WriteLine("Dados carregados com sucesso.");
                     break;
 
-                case "11":
+                case "0":
                     Console.WriteLine("A sair do programa.");
                     return;
 
