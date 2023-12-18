@@ -76,61 +76,15 @@ class Zoo
                     break;
 
                 case "4":
-                    Console.Write("Insira o nome do animal cuja jaula será limpa: ");
-                    string? nomeLimpeza = Console.ReadLine();
-                    Animal? animalLimpeza = animais.Find(a => a.Nome == nomeLimpeza);
-
-                    if (animalLimpeza != null)
-                    {
-                        limpeza.LimparJaula(animalLimpeza);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Animal não encontrado.");
-                    }
+                    limpeza.LimparJaulaAnimal(animais);
                     break;
 
                 case "5":
-                    Console.Write("Insira a data do espetáculo (dd/mm/yyyy): ");
-                    if (DateTime.TryParse(Console.ReadLine(), out DateTime dataEspetaculo))
-                    {
-                        Console.Write("Insira a hora do espetáculo (hh:mm): ");
-                        if (TimeSpan.TryParse(Console.ReadLine(), out TimeSpan horaEspetaculo))
-                        {
-                            dataEspetaculo = dataEspetaculo.Add(horaEspetaculo);
-
-                            espetaculo.RealizarEspetaculo(dataEspetaculo);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Hora inválida.");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Data inválida.");
-                    }
+                    espetaculo.RealizarEspetaculo();
                     break;
 
                 case "6":
-                    Console.Write("Insira a data do espetáculo (dd/MM/yyyy): ");
-                    if (DateTime.TryParse(Console.ReadLine(), out dataEspetaculo))
-                    {
-                        Console.Write("Insira a hora do espetáculo (HH:mm): ");
-                        if (TimeSpan.TryParse(Console.ReadLine(), out TimeSpan horaEspetaculo))
-                        {
-                            dataEspetaculo = dataEspetaculo.Add(horaEspetaculo);
-                            espetaculo.RealizarEspetaculo(dataEspetaculo);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Hora inválida.");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Data inválida.");
-                    }
+                    bilhete.VenderBilhete();
                     break;
 
 
