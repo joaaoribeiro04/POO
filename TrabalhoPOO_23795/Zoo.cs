@@ -68,18 +68,7 @@ class Zoo
                     break;
 
                 case "2":
-                    Console.Write("Insira o nome do animal a ser examinado: ");
-                    string? nomeExame = Console.ReadLine();
-                    Animal? animalExame = animais.Find(a => a.Nome == nomeExame);
-
-                    if (animalExame != null)
-                    {
-                        veterinaria.RealizarExame(animalExame);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Animal não encontrado.");
-                    }
+                    veterinaria.RealizarExameVeterinario(animais);
                     break;
 
                 case "3":
