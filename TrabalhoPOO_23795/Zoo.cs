@@ -13,9 +13,6 @@ class Zoo
     string caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dados_zoo.txt");
 
 
-
-
-
     public Zoo()
     {
         animais = new List<Animal>();
@@ -33,7 +30,7 @@ class Zoo
 
     public bool Login(string nome, string senha)
     {
-          if (nome == "joao" && senha == "joao")
+        if (nome == "joao" && senha == "joao")
         {
             funcionarioLogado = new Funcionario(nome, senha);
             Console.WriteLine($"Bem-vindo, {nome}!");

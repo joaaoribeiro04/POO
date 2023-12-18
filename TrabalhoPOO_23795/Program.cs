@@ -1,20 +1,26 @@
 ﻿class Program
 {
-    static void Main()
+    public static void Main(string[] args)
     {
-        Zoo meuZoo = new();
-        // Pedir ao usuário que faça login
-        Console.Write("Nome do funcionário: ");
+        Zoo zoo = new Zoo();
+
+        Console.Write("Nome de usuário: ");
         string nomeUsuario = Console.ReadLine();
 
         Console.Write("Senha: ");
-        string senhaUsuario = Console.ReadLine();
+        string senha = Console.ReadLine();
 
         // Tenta fazer login
-        if (meuZoo.Login(nomeUsuario, senhaUsuario))
-        {          
-            meuZoo.Menu();
+        if (zoo.Login(nomeUsuario, senha))
+        {
+           
+            zoo.Menu();
         }
-        meuZoo.Menu();
+        else
+        {
+            
+            Console.WriteLine("Credenciais inválidas. O programa será encerrado.");
+        }
     }
+
 }
