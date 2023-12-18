@@ -10,7 +10,7 @@
         Console.Write("Senha: ");
         string senha = Console.ReadLine();
 
-        // Tenta fazer login
+
         if (zoo.Login(nomeUsuario, senha))
         {
            
