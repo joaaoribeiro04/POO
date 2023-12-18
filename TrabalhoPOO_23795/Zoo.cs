@@ -1,5 +1,11 @@
-﻿using System.Text.Json;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
 
+/// <summary>
+/// Representa o zoológico e suas operações.
+/// </summary>
 class Zoo
 {
     private List<Animal> animais;
@@ -11,7 +17,9 @@ class Zoo
     private Funcionario? funcionarioLogado;
     private string? caminhoArquivo;
 
-
+    /// <summary>
+    /// Construtor da classe Zoo. Inicializa as instâncias necessárias.
+    /// </summary>
     public Zoo()
     {
         animais = new List<Animal>();
@@ -23,6 +31,12 @@ class Zoo
         caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dados_zoo.txt");
     }
 
+    /// <summary>
+    /// Realiza o login do funcionário no sistema.
+    /// </summary>
+    /// <param name="nome">Nome do utilizador.</param>
+    /// <param name="senha">Senha do utilizador.</param>
+    /// <returns>True se o login for bem-sucedido, False caso contrário.</returns>
     public bool Login(string nome, string senha)
     {
         if (nome == "joao" && senha == "joao")
@@ -38,6 +52,9 @@ class Zoo
         }
     }
 
+    /// <summary>
+    /// Exibe o menu principal e executa as operações escolhidas pelo utilizador.
+    /// </summary>
     public void Menu()
     {
         do
@@ -98,7 +115,6 @@ class Zoo
                     if (a != null) { animais = a; }
                     Console.WriteLine("Dados carregados com sucesso.");
                     break;
-
 
                 case "0":
                     Console.WriteLine("A sair do programa.");

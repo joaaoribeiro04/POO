@@ -1,7 +1,13 @@
 ﻿using System;
 
+/// <summary>
+/// Representa a classe de bilhete para espetáculos no zoológico.
+/// </summary>
 public class BilheteEspectaculo : Bilhete
 {
+    /// <summary>
+    /// Implementação do método abstrato para vender um bilhete de espetáculo.
+    /// </summary>
     public override void VenderBilhete()
     {
         Console.Write("Insira a data do espetáculo (dd/MM/yyyy): ");

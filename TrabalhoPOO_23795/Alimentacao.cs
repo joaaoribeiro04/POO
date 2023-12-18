@@ -1,15 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 
+/// <summary>
+/// Representa a classe responsável pela gestão da alimentação dos animais no zoológico.
+/// </summary>
 class Alimentacao
 {
+    /// <summary>
+    /// Obtém ou define a lista de tipos de comida disponíveis.
+    /// </summary>
     public List<TipoComida> TiposComida { get; set; }
 
+    /// <summary>
+    /// Inicializa uma nova instância da classe <see cref="Alimentacao"/>.
+    /// </summary>
     public Alimentacao()
     {
         TiposComida = new List<TipoComida>();
     }
 
+    /// <summary>
+    /// Realiza a alimentação de um animal específico, permitindo a escolha do tipo de comida.
+    /// </summary>
+    /// <param name="animais">A lista de animais no zoológico.</param>
     public void AlimentarAnimal(List<Animal> animais)
     {
         Console.Write("Insira o nome do animal a ser alimentado: ");
@@ -45,7 +58,6 @@ class Alimentacao
                     TiposComida.Add(tipoComida);
 
                     Console.WriteLine($"A alimentar {animalAlimentar.Nome} com comida {tipoComida.Nome}.");
-                    
                 }
             }
             else
