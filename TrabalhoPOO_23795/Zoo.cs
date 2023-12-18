@@ -165,43 +165,50 @@ class Zoo
                     break;
 
                 case "3":
-                    Console.WriteLine("Escolha o tipo de comida (1. Carnívoro, 2. Herbívoro, 3. Onívoro): ");
-                    if (int.TryParse(Console.ReadLine(), out int escolhaComida))
+                    Console.Write("Insira o nome do animal a ser alimentado: ");
+                    string nomeAlimentar = Console.ReadLine();
+
+                    Animal animalAlimentar = animais.Find(a => a.Nome == nomeAlimentar);
+
+                    if (animalAlimentar != null)
                     {
-                        TipoComida tipoComida = null;
-
-                        switch (escolhaComida)
+                        Console.WriteLine("Escolha o tipo de comida (1. Carnívora, 2. Herbívora, 3. Omnívora): ");
+                        if (int.TryParse(Console.ReadLine(), out int escolhaComida))
                         {
-                            case 1:
-                                tipoComida = new TipoComida { Nome = "Carnívoro", Descricao = "Comida para carnívoros" };
-                                break;
-                            case 2:
-                                tipoComida = new TipoComida { Nome = "Herbívoro", Descricao = "Comida para herbívoros" };
-                                break;
-                            case 3:
-                                tipoComida = new TipoComida { Nome = "Onívoro", Descricao = "Comida para onívoros" };
-                                break;
-                            default:
-                                Console.WriteLine("Escolha inválida de comida.");
-                                break;
-                        }
+                            TipoComida tipoComida = null;
 
-                        if (tipoComida != null)
-                        {
-                            alimentacao.TiposComida.Add(tipoComida);
-
-                            Console.WriteLine($"A alimentar animais com {tipoComida.Nome}...");
-
-                            foreach (var animal in animais)
+                            switch (escolhaComida)
                             {
-                                Console.WriteLine($"A alimentar {animal.Nome} com {tipoComida.Nome}.");
-                                alimentacao.Alimentar(animal);
+                                case 1:
+                                    tipoComida = new TipoComida { Nome = "Carnívora", Descricao = "Comida para carnívoros" };
+                                    break;
+                                case 2:
+                                    tipoComida = new TipoComida { Nome = "Herbívora", Descricao = "Comida para herbívoros" };
+                                    break;
+                                case 3:
+                                    tipoComida = new TipoComida { Nome = "Omnívora", Descricao = "Comida para onívoros" };
+                                    break;
+                                default:
+                                    Console.WriteLine("Escolha inválida de comida.");
+                                    break;
                             }
+
+                            if (tipoComida != null)
+                            {
+                                alimentacao.TiposComida.Add(tipoComida);
+
+                                Console.WriteLine($"A alimentar {animalAlimentar.Nome} com comida {tipoComida.Nome}.");
+                                alimentacao.Alimentar(animalAlimentar);
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Escolha inválida. Insira um número.");
                         }
                     }
                     else
                     {
-                        Console.WriteLine("Escolha inválida. Insira um número.");
+                        Console.WriteLine("Animal não encontrado.");
                     }
                     break;
 

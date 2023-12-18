@@ -4,7 +4,7 @@
     {
         Zoo zoo = new Zoo();
 
-        Console.Write("Nome de usuário: ");
+        Console.Write("Nome do utilizador: ");
         string nomeUsuario = Console.ReadLine();
 
         Console.Write("Senha: ");

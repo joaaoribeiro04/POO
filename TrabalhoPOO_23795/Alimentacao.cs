@@ -15,6 +15,6 @@ class Alimentacao
 
     public void Alimentar(Animal animal)
     {
-        Console.WriteLine($"A alimentar {animal.Nome}.");
+      
     }
 }
