@@ -9,7 +9,7 @@ class Zoo
     private Espetaculo espetaculo;
     private Bilhete bilhete;
 
-    string caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dados_zoo.txt");
+    private string caminhoArquivo;
 
 
     public Zoo()
