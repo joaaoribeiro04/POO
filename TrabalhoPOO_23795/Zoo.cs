@@ -47,54 +47,6 @@ class Zoo
         Console.WriteLine($"{animal.Nome} foi adicionado ao zoológico.");
     }
 
-    public void WriteAnimalsToFile()
-        
-    {
-
-        string filePath = caminhoArquivo; 
-
-        try
-        {
-            var options = new JsonSerializerOptions { WriteIndented = true };
-            string jsonString = JsonSerializer.Serialize(animais, options);
-
-
-            File.WriteAllText(filePath, jsonString);
-        }
-
-        catch (JsonException jsonEx)
-        {
-            Console.WriteLine(jsonEx.Message);
-           
-        }
-        catch (IOException ioEx)
-        {
-            Console.WriteLine(ioEx.Message);
-           
-        }
-    }
-
-    public void ReadAnimalsFromFile()
-    {
-        string filePath = caminhoArquivo; 
-
-        try
-        {
-            string jsonString = File.ReadAllText(filePath);
-            animais = JsonSerializer.Deserialize<List<Animal>>(jsonString);
-        }
-        catch (JsonException jsonEx)
-        {
-            Console.WriteLine(jsonEx.Message);
-          
-        }
-        catch (IOException ioEx)
-        {
-            Console.WriteLine(ioEx.Message);
-            
-        }
-    }
-
     public void MostrarAnimais()
     {
         Console.WriteLine("Animais no zoológico:");
@@ -126,24 +78,8 @@ class Zoo
             switch (opcao)
             {
                 case "1":
-                    Console.Write("Insira o nome do animal: ");
-                    string nomeAnimal = Console.ReadLine();
-                    Console.Write("Insira a idade do animal: ");
-                    int idadeAnimal = int.Parse(Console.ReadLine());
-
-                    Console.Write("Tipo de animal: ");
-                    string tipoAnimal = Console.ReadLine();
-
-                    Animal novoAnimal;
-                    {
-                        novoAnimal = new Animal();
-                    }
-
-                    novoAnimal.Nome = nomeAnimal;
-                    novoAnimal.Idade = idadeAnimal;
-                    novoAnimal.TipoAnimal = tipoAnimal;
-
-                    AdicionarAnimal(novoAnimal);
+                    Animal animal = new Animal();
+                    animal.AdicionarAoZoo(animais);
                     break;
 
                 case "2":
@@ -274,14 +210,16 @@ class Zoo
                     break;
 
                 case "8":
-                    WriteAnimalsToFile();
+                    Animal.WriteAnimalsToFile(animais);
                     Console.WriteLine("Dados salvos com sucesso.");
                     break;
 
                 case "9":
-                    ReadAnimalsFromFile();
+                    var a = Animal.ReadAnimalsFromFile();
+                    if (a != null) { animais = a; }
                     Console.WriteLine("Dados carregados com sucesso.");
                     break;
+
 
                 case "0":
                     Console.WriteLine("A sair do programa.");
