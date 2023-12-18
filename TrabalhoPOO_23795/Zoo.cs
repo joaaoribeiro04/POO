@@ -5,7 +5,6 @@ class Zoo
     private List<Animal> animais;
     private AssistenciaVeterinaria veterinaria;
     private Alimentacao alimentacao;
-    private Calendario calendario;
     private LimpezaJaulas limpeza;
     private Espetaculo espetaculo;
     private Bilhete bilhete;
@@ -18,9 +17,8 @@ class Zoo
         animais = new List<Animal>();
         veterinaria = new AssistenciaVeterinaria();
         alimentacao = new Alimentacao();
-        calendario = new Calendario();
         limpeza = new LimpezaJaulas();
-        espetaculo = new Espetaculo { Nome = "Show de Leões", Duracao = TimeSpan.FromHours(1) };
+        espetaculo = new Espetaculo();
         bilhete = new Bilhete { Preco = 20m, Disponivel = true };
         caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dados_zoo.txt");
     }
@@ -114,7 +112,6 @@ class Zoo
             Console.WriteLine("1. Adicionar animal");
             Console.WriteLine("2. Realizar exame veterinário");
             Console.WriteLine("3. Alimentar animais");
-            Console.WriteLine("4. Adicionar evento ao calendário");
             Console.WriteLine("5. Limpar jaulas");
             Console.WriteLine("6. Realizar espetáculo");
             Console.WriteLine("7. Vender bilhete");
@@ -213,18 +210,6 @@ class Zoo
                     break;
 
 
-                case "4":
-                    Console.Write("Insira a data do evento (dd/mm/yyyy): ");
-                    if (DateTime.TryParse(Console.ReadLine(), out DateTime dataEvento))
-                    {
-                        calendario.AdicionarEvento(dataEvento);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Data inválida.");
-                    }
-                    break;
-
                 case "5":
                     Console.Write("Insira o nome do animal cuja jaula será limpa: ");
                     string nomeLimpeza = Console.ReadLine();
@@ -241,7 +226,25 @@ class Zoo
                     break;
 
                 case "6":
-                    espetaculo.RealizarEspetaculo();
+                    Console.Write("Insira a data do espetáculo (dd/mm/yyyy): ");
+                    if (DateTime.TryParse(Console.ReadLine(), out DateTime dataEspetaculo))
+                    {
+                        Console.Write("Insira a hora do espetáculo (hh:mm): ");
+                        if (TimeSpan.TryParse(Console.ReadLine(), out TimeSpan horaEspetaculo))
+                        {
+                            dataEspetaculo = dataEspetaculo.Add(horaEspetaculo);
+
+                            espetaculo.RealizarEspetaculo(dataEspetaculo);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Hora inválida.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Data inválida.");
+                    }
                     break;
 
                 case "7":

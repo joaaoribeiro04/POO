@@ -10,9 +10,10 @@ class Espetaculo
 
     public string? Nome { get; set; }
     public TimeSpan Duracao { get => duracao; set => duracao = value; }
+    public string? TipoAnimal { get; set; }
 
-    public void RealizarEspetaculo()
+    public void RealizarEspetaculo(DateTime dataEspetaculo)
     {
-        Console.WriteLine($"A realizar espetáculo: {Nome} ({Duracao} horas).");
+        Console.WriteLine($"A realizar espetáculo no dia {dataEspetaculo:dd/MM/yyyy 'às' HH:mm}.");
     }
 }
