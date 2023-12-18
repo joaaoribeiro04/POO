@@ -17,8 +17,8 @@ class Zoo
         animais = new List<Animal>();
         veterinaria = new AssistenciaVeterinaria();
         alimentacao = new Alimentacao();
-        limpeza = new LimpezaJaulas();
         espetaculo = new Espetaculo();
+        limpeza = new LimpezaJaulas();
         bilhete = new Bilhete { Preco = 20m, Disponivel = true };
         caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dados_zoo.txt");
     }

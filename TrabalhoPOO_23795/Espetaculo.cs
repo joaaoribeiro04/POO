@@ -1,33 +1,39 @@
 ﻿using System;
 
-class Espetaculo
+public class Espetaculo
 {
     private TimeSpan duracao;
 
     public string? Nome { get; set; }
     public TimeSpan Duracao { get => duracao; set => duracao = value; }
-    public string? TipoAnimal { get; set; }
 
-    public void RealizarEspetaculo()
+    public virtual void RealizarEspetaculo()
     {
-        Console.Write("Insira a data do espetáculo (dd/MM/yyyy): ");
-        if (DateTime.TryParse(Console.ReadLine(), out DateTime dataEspetaculo))
+        Console.Write("Escolha o tipo de espetáculo (1. Aéreo, 2. Aquático): ");
+        if (int.TryParse(Console.ReadLine(), out int escolhaEspetaculo))
         {
-            Console.Write("Insira a hora do espetáculo (HH:mm): ");
-            if (TimeSpan.TryParse(Console.ReadLine(), out TimeSpan horaEspetaculo))
-            {
-                dataEspetaculo = dataEspetaculo.Add(horaEspetaculo);
+            Espetaculo espetaculo;
 
-                Console.WriteLine($"A realizar espetáculo no dia {dataEspetaculo:dd/MM/yyyy 'às' HH:mm}.");
-            }
-            else
+            switch (escolhaEspetaculo)
             {
-                Console.WriteLine("Hora inválida.");
+                case 1:
+                    espetaculo = new EspetaculoAereo();
+                    break;
+                case 2:
+                    espetaculo = new EspetaculoAquatico();
+                    break;
+                default:
+                    Console.WriteLine("Escolha inválida.");
+                    return;
             }
+
+            espetaculo.RealizarEspetaculo();
         }
         else
         {
-            Console.WriteLine("Data inválida.");
+            Console.WriteLine("Escolha inválida. Insira um número.");
         }
+        
     }
 }
+
