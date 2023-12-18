@@ -10,6 +10,12 @@ class Zoo
     private Espetaculo espetaculo;
     private Bilhete bilhete;
 
+    string caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dados_zoo.txt");
+
+
+
+
+
     public Zoo()
     {
         animais = new List<Animal>();
@@ -19,6 +25,7 @@ class Zoo
         limpeza = new LimpezaJaulas();
         espetaculo = new Espetaculo { Nome = "Show de Leões", Duracao = TimeSpan.FromHours(1) };
         bilhete = new Bilhete { Preco = 20m, Disponivel = true };
+        caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dados_zoo.txt");
     }
 
 
@@ -45,6 +52,56 @@ class Zoo
         Console.WriteLine($"{animal.Nome} foi adicionado ao zoológico.");
     }
 
+    public void WriteAnimalsToFile()
+        
+    {
+
+        string filePath = caminhoArquivo; // File path
+
+        try
+        {
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            string jsonString = JsonSerializer.Serialize(animais, options);
+
+
+            File.WriteAllText(filePath, jsonString);
+        }
+
+        catch (JsonException jsonEx)
+        {
+            Console.WriteLine(jsonEx.Message);
+            // Handle JSON serialization/deserialization exceptions
+        }
+        catch (IOException ioEx)
+        {
+            Console.WriteLine(ioEx.Message);
+            // Handle I/O exceptions
+            // Handle other exceptions
+        }
+    }
+
+    public void ReadAnimalsFromFile()
+    {
+        string filePath = caminhoArquivo; // File path
+
+        try
+        {
+            string jsonString = File.ReadAllText(filePath);
+            animais = JsonSerializer.Deserialize<List<Animal>>(jsonString);
+        }
+        catch (JsonException jsonEx)
+        {
+            Console.WriteLine(jsonEx.Message);
+            // Handle JSON serialization/deserialization exceptions
+        }
+        catch (IOException ioEx)
+        {
+            Console.WriteLine(ioEx.Message);
+            // Handle I/O exceptions
+            // Handle other exceptions
+        }
+    }
+
     public void Menu()
     {
         do
@@ -59,6 +116,8 @@ class Zoo
             Console.WriteLine("7. Vender bilhete");
             Console.WriteLine("8. Mostrar animais");
             Console.WriteLine("9. Sair");
+            Console.WriteLine("10. Salvar dados");
+            Console.WriteLine("11. Carregar dados");
 
             Console.Write("Escolha uma opção: ");
             string opcao = Console.ReadLine();
@@ -193,6 +252,16 @@ class Zoo
                 case "9":
                     Console.WriteLine("A sair do programa.");
                     return;
+
+                case "10":
+                    WriteAnimalsToFile();
+                    Console.WriteLine("Dados salvos com sucesso.");
+                    break;
+
+                case "11":
+                    ReadAnimalsFromFile();
+                    Console.WriteLine("Dados carregados com sucesso.");
+                    break;
 
                 default:
                     Console.WriteLine("Opção inválida. Tente novamente.");
