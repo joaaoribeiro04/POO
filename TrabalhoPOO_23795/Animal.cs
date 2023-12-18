@@ -13,7 +13,10 @@ class Animal
         string? nomeAnimal = Console.ReadLine();
 
         Console.Write("Insira a idade do animal: ");
-        int idadeAnimal = int.Parse(Console.ReadLine());
+        if(!int.TryParse(Console.ReadLine(), out int idadeAnimal))
+        {
+            Console.WriteLine("erro");
+        }
 
         Console.Write("Tipo de animal: ");
         string? tipoAnimal = Console.ReadLine();

@@ -8,7 +8,7 @@ class Zoo
     private LimpezaJaulas limpeza;
     private Espetaculo espetaculo;
     private Bilhete? bilhete;
-
+    private Funcionario? funcionarioLogado;
     private string? caminhoArquivo;
 
 
@@ -22,9 +22,6 @@ class Zoo
         bilhete = new Bilhete { Preco = 20m, Disponivel = true };
         caminhoArquivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "dados_zoo.txt");
     }
-
-
-    private Funcionario? funcionarioLogado;
 
     public bool Login(string nome, string senha)
     {
@@ -68,7 +65,7 @@ class Zoo
                     break;
 
                 case "2":
-                    veterinaria.RealizarExameVeterinario(animais);
+                    AssistenciaVeterinaria.RealizarExameVeterinario(animais);
                     break;
 
                 case "3":
@@ -84,9 +81,8 @@ class Zoo
                     break;
 
                 case "6":
-                    bilhete.VenderBilhete();
+                    bilhete?.VenderBilhete();
                     break;
-
 
                 case "7":
                     Console.WriteLine(Animal.MostrarAnimais(animais));
